@@ -1,6 +1,6 @@
 package cn.cnowse.base;
 
-import cn.cnowse.constant.HttpStatus;
+import cn.cnowse.constant.HttpStatusConstants;
 import lombok.Data;
 
 /**
@@ -78,7 +78,7 @@ public class ApiResult {
      * @return 成功消息
      */
     public static ApiResult success(String msg, Object data) {
-        return new ApiResult(HttpStatus.SUCCESS, msg, data);
+        return new ApiResult(HttpStatusConstants.SUCCESS, msg, data);
     }
 
     /**
@@ -108,7 +108,7 @@ public class ApiResult {
      * @return 警告消息
      */
     public static ApiResult warn(String msg, Object data) {
-        return new ApiResult(HttpStatus.WARN, msg, data);
+        return new ApiResult(HttpStatusConstants.WARN, msg, data);
     }
 
     /**
@@ -138,7 +138,7 @@ public class ApiResult {
      * @return 错误消息
      */
     public static ApiResult error(String msg, Object data) {
-        return new ApiResult(HttpStatus.ERROR, msg, data);
+        return new ApiResult(HttpStatusConstants.ERROR, msg, data);
     }
 
     /**

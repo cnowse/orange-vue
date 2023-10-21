@@ -10,16 +10,16 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>orange-app</artifactId>
+    <artifactId>orange-server</artifactId>
 
-    <name>orange-app</name>
-    <description>orange-app</description>
+    <name>orange-server</name>
+    <description>orange-server</description>
 
     <dependencies>
-        <!-- system 模块 -->
+        <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
         <dependency>
-            <groupId>cn.cnowse</groupId>
-            <artifactId>orange-server</artifactId>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

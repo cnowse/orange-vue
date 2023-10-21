@@ -86,6 +86,16 @@ public class RedisHelper {
     }
 
     /**
+     * 删除指定 key 数据
+     *
+     * @param key key
+     * @author Jeong Geol
+     */
+    public void delete(String key) {
+        redis.delete(key);
+    }
+
+    /**
      * hash 数据类型存储
      *
      * @param key key

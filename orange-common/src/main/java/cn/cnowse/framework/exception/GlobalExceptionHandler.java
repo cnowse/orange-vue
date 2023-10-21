@@ -1,8 +1,9 @@
 package cn.cnowse.framework.exception;
 
-import cn.cnowse.base.ApiResult;
-import cn.cnowse.constant.HttpStatus;
-import lombok.extern.slf4j.Slf4j;
+import java.nio.file.AccessDeniedException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import javax.servlet.http.HttpServletRequest;
-import java.nio.file.AccessDeniedException;
+import cn.cnowse.base.ApiResult;
+import cn.cnowse.constant.HttpStatusConstants;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 全局异常处理器
@@ -31,7 +33,7 @@ public class GlobalExceptionHandler {
     public ApiResult handleAccessDeniedException(AccessDeniedException e, HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',权限校验失败'{}'", requestURI, e.getMessage());
-        return ApiResult.error(HttpStatus.FORBIDDEN, "没有权限，请联系管理员授权");
+        return ApiResult.error(HttpStatusConstants.FORBIDDEN, "没有权限，请联系管理员授权");
     }
 
     /**

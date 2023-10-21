@@ -16,7 +16,7 @@
         <module>orange-data</module>
         <module>orange-common</module>
         <module>orange-app</module>
-        <module>orange-system</module>
+        <module>orange-server</module>
     </modules>
 
     <properties>
@@ -29,6 +29,8 @@
         <druid.version>1.2.16</druid.version>
         <dynamic-datasource.version>3.5.2</dynamic-datasource.version>
         <kaptcha.version>2.3.3</kaptcha.version>
+        <sa-token.version>1.36.0</sa-token.version>
+        <bitwalker.version>1.21</bitwalker.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <spring-boot-dependencies.version>2.7.12</spring-boot-dependencies.version>
     </properties>
@@ -68,6 +70,7 @@
                 <version>${mapstruct.version}</version>
             </dependency>
 
+            <!-- mapstruct -->
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
@@ -95,7 +98,7 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
-            <!-- 验证码 -->
+            <!-- 验证码生成 -->
             <dependency>
                 <groupId>pro.fessional</groupId>
                 <artifactId>kaptcha</artifactId>
@@ -116,22 +119,38 @@
                 <version>${dynamic-datasource.version}</version>
             </dependency>
 
-            <!-- 项目版本 -->
+            <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- 解析客户端操作系统、浏览器等 -->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
+            </dependency>
+
+            <!-- system 模块 -->
+            <dependency>
+                <groupId>cn.cnowse</groupId>
+                <artifactId>orange-server</artifactId>
+                <version>${orange-vue.version}</version>
+            </dependency>
+
+            <!-- common 模块 -->
             <dependency>
                 <groupId>cn.cnowse</groupId>
                 <artifactId>orange-common</artifactId>
                 <version>${orange-vue.version}</version>
             </dependency>
 
+            <!-- app 模块 -->
             <dependency>
                 <groupId>cn.cnowse</groupId>
-                <artifactId>orange-data</artifactId>
-                <version>${orange-vue.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.cnowse</groupId>
-                <artifactId>orange-system</artifactId>
+                <artifactId>orange-app</artifactId>
                 <version>${orange-vue.version}</version>
             </dependency>
         </dependencies>
@@ -153,42 +172,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
-        <!-- <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <excludes>
-                            <exclude>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                            </exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
-                    <configuration>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct.version}</version>
-                            </path>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                            </path>
-                        </annotationProcessorPaths>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement> -->
     </build>
 
 </project>
