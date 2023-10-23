@@ -1,4 +1,4 @@
-package cn.cnowse.framework.exception;
+package cn.cnowse.exception;
 
 /**
  * 业务异常

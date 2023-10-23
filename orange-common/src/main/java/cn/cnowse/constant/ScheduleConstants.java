@@ -26,6 +26,8 @@ public final class ScheduleConstants {
     /** 不触发立即执行 */
     public static final String MISFIRE_DO_NOTHING = "3";
 
+    private ScheduleConstants() {}
+
     @Getter
     public enum Status {
 
@@ -45,7 +47,5 @@ public final class ScheduleConstants {
         }
 
     }
-
-    private ScheduleConstants() {}
 
 }

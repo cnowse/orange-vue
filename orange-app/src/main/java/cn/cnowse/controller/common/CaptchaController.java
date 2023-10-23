@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.code.kaptcha.Producer;
 
-import cn.cnowse.server.pojo.common.CaptchaVO;
+import cn.cnowse.config.properties.OrangeProperties;
 import cn.cnowse.constant.CacheConstants;
 import cn.cnowse.constant.Constants;
-import cn.cnowse.framework.config.properties.OrangeProperties;
-import cn.cnowse.framework.exception.ServiceException;
+import cn.cnowse.exception.ServiceException;
+import cn.cnowse.server.pojo.common.CaptchaVO;
 import cn.cnowse.server.service.system.SysConfigService;
 import cn.cnowse.util.redis.RedisHelper;
 import cn.cnowse.util.uuid.IdUtils;

@@ -1,21 +1,26 @@
-package cn.cnowse.framework.config;
+package cn.cnowse.config;
 
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import cn.cnowse.util.ThreadUtils;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 线程池配置
  *
  * @author Jeong Geol
- **/
+ */
+@Slf4j
 @Configuration
 public class ThreadPoolConfig {
 
@@ -55,10 +60,33 @@ public class ThreadPoolConfig {
             @Override
             protected void afterExecute(Runnable r, Throwable t) {
                 super.afterExecute(r, t);
-                ThreadUtils.printException(r, t);
+                printException(r, t);
             }
 
         };
+    }
+
+    /**
+     * 打印线程异常信息
+     */
+    private void printException(Runnable r, Throwable t) {
+        if (t == null && r instanceof Future<?>) {
+            try {
+                Future<?> future = (Future<?>)r;
+                if (future.isDone()) {
+                    future.get();
+                }
+            } catch (CancellationException ce) {
+                t = ce;
+            } catch (ExecutionException ee) {
+                t = ee.getCause();
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        if (t != null) {
+            log.error(t.getMessage(), t);
+        }
     }
 
 }

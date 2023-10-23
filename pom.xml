@@ -13,7 +13,6 @@
     <description>orange-vue</description>
 
     <modules>
-        <module>orange-data</module>
         <module>orange-common</module>
         <module>orange-app</module>
         <module>orange-server</module>
@@ -133,7 +132,7 @@
                 <version>${bitwalker.version}</version>
             </dependency>
 
-            <!-- system 模块 -->
+            <!-- server 模块 -->
             <dependency>
                 <groupId>cn.cnowse</groupId>
                 <artifactId>orange-server</artifactId>

@@ -1,4 +1,4 @@
-package cn.cnowse.framework.web;
+package cn.cnowse.web;
 
 import java.lang.reflect.Type;
 

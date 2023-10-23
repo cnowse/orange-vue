@@ -1,4 +1,4 @@
-package cn.cnowse.framework.config;
+package cn.cnowse.config;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_BORDER;
 import static com.google.code.kaptcha.Constants.KAPTCHA_BORDER_COLOR;

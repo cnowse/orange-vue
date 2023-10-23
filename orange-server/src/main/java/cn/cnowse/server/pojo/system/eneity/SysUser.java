@@ -14,7 +14,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 
 import cn.cnowse.annotation.Excel;
 import cn.cnowse.annotation.Excels;
-import cn.cnowse.annotation.xss.Xss;
 import cn.cnowse.base.BaseEntity;
 import lombok.Data;
 
@@ -39,14 +38,12 @@ public class SysUser extends BaseEntity {
 
     /** 用户账号 */
     @Excel(name = "登录名称")
-    @Xss(message = "用户账号不能包含脚本字符")
     @NotBlank(message = "用户账号不能为空")
     @Size(max = 30, message = "用户账号长度不能超过30个字符")
     private String userName;
 
     /** 用户昵称 */
     @Excel(name = "用户名称")
-    @Xss(message = "用户昵称不能包含脚本字符")
     @Size(max = 30, message = "用户昵称长度不能超过30个字符")
     private String nickName;
 

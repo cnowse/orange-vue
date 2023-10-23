@@ -4,5 +4,4 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import cn.cnowse.server.pojo.system.eneity.SysOperateLog;
 
-public interface SysOperateLogMapper extends BaseMapper<SysOperateLog> {
-}
+public interface SysOperateLogMapper extends BaseMapper<SysOperateLog> {}

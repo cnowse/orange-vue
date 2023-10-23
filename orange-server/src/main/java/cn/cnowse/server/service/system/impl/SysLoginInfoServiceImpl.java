@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import cn.cnowse.server.mapper.system.SysLoginInfoMapper;
-import cn.cnowse.server.service.system.SysLoginInfoService;
 import cn.cnowse.server.pojo.system.eneity.SysLoginInfo;
+import cn.cnowse.server.service.system.SysLoginInfoService;
 
 @Service
 public class SysLoginInfoServiceImpl extends ServiceImpl<SysLoginInfoMapper, SysLoginInfo>

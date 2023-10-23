@@ -1,4 +1,4 @@
-package cn.cnowse.framework.exception;
+package cn.cnowse.exception;
 
 /**
  * 工具类异常

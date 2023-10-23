@@ -1,4 +1,4 @@
-package cn.cnowse.framework.config.properties;
+package cn.cnowse.config.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

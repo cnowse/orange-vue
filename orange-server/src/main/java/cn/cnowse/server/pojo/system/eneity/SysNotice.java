@@ -8,7 +8,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 
-import cn.cnowse.annotation.xss.Xss;
 import cn.cnowse.base.BaseEntity;
 import lombok.Data;
 
@@ -27,7 +26,6 @@ public class SysNotice extends BaseEntity {
     private Long noticeId;
 
     /** 公告标题 */
-    @Xss(message = "公告标题不能包含脚本字符")
     @NotBlank(message = "公告标题不能为空")
     @Size(max = 50, message = "公告标题不能超过50个字符")
     private String noticeTitle;

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("cn.cnowse.mapper")
+@MapperScan("cn.cnowse.server.mapper")
 public class OrangeAppApplication {
 
     public static void main(String[] args) {
