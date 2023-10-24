@@ -30,6 +30,7 @@
         <kaptcha.version>2.3.3</kaptcha.version>
         <sa-token.version>1.36.0</sa-token.version>
         <bitwalker.version>1.21</bitwalker.version>
+        <knife4j.version>4.3.0</knife4j.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <spring-boot-dependencies.version>2.7.12</spring-boot-dependencies.version>
     </properties>
@@ -125,11 +126,25 @@
                 <version>${sa-token.version}</version>
             </dependency>
 
+            <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
             <!-- 解析客户端操作系统、浏览器等 -->
             <dependency>
                 <groupId>eu.bitwalker</groupId>
                 <artifactId>UserAgentUtils</artifactId>
                 <version>${bitwalker.version}</version>
+            </dependency>
+
+            <!-- swagger knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
 
             <!-- server 模块 -->

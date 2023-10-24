@@ -13,7 +13,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public SysUser getUserByUserName(String userName) {
-        return baseMapper.selectOne(this.lambdaQuery().eq(SysUser::getUserName, userName));
+        return baseMapper.selectOne(this.lambdaQuery().eq(SysUser::getUserName, userName).getWrapper());
     }
 
 }

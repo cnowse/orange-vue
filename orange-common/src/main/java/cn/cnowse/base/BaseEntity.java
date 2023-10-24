@@ -3,6 +3,7 @@ package cn.cnowse.base;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,6 +21,7 @@ public class BaseEntity implements Serializable {
 
     /** 搜索值 */
     @JsonIgnore
+    @TableField(exist = false)
     private String searchValue;
 
     /** 创建者 */

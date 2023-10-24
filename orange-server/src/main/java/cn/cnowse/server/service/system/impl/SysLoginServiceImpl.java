@@ -38,17 +38,17 @@ public class SysLoginServiceImpl implements SysLoginService {
         // IP黑名单校验
         String blackStr = configService.getConfigByKey("sys.login.blackIPList");
         if (IpUtils.isMatchedIp(blackStr, IpUtils.getIpAddr())) {
-            throw new ServiceException();
+            throw new ServiceException("IP处于黑名单中");
         }
         SysUser user = userService.getUserByUserName(dto.getUsername());
         if (user == null) {
-            log.info("登录用户：{} 不存在.", dto.getUsername());
+            log.warn("登录用户：{} 不存在.", dto.getUsername());
             throw new ServiceException("登录用户不存在");
         } else if (UserStatus.DELETED.getCode().equals(user.getDelFlag())) {
-            log.info("登录用户：{} 已被删除.", dto.getUsername());
+            log.warn("登录用户：{} 已被删除.", dto.getUsername());
             throw new ServiceException("登录用户已被删除");
         } else if (UserStatus.DISABLE.getCode().equals(user.getStatus())) {
-            log.info("登录用户：{} 已被停用.", dto.getUsername());
+            log.warn("登录用户：{} 已被停用.", dto.getUsername());
             throw new ServiceException("登录用户已被停用");
         }
         StpUtil.login(user.getUserId());

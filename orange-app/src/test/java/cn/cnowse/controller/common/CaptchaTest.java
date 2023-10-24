@@ -15,6 +15,11 @@ class CaptchaTest {
     @Autowired
     private CaptchaController captchaController;
 
+    /**
+     * 获取验证码
+     *
+     * @author Jeong Geol
+     */
     @Test
     void getCaptchaTest() {
         CaptchaVO code = captchaController.getCode();

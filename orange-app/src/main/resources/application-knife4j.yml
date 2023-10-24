@@ -1,0 +1,23 @@
+knife4j:
+  enable: true
+  openapi:
+    title: "orange-vue"
+    description: "基于SpringBoot+Vue前后端分离的Java快速开发框架(Rouyi-Vue改)"
+    email: cnowse@gmail.com
+    concat: "Jeong Geol"
+    url: https://www.cnowse.com
+    version: v0.0.1
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      common:
+        group-name: 通用接口
+        api-rule: package
+        api-rule-resources:
+          - cn.cnowse.controller.common
+      system:
+        group-name: 系统接口
+        api-rule: package
+        api-rule-resources:
+          - cn.cnowse.controller.system
