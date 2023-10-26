@@ -25,7 +25,8 @@ public class SysConfigServiceImpl extends ServiceImpl<SysConfigMapper, SysConfig
         if (StringUtils.isNotEmpty(configValue)) {
             return configValue;
         }
-        SysConfig retConfig = baseMapper.selectOne(this.lambdaQuery().eq(SysConfig::getConfigKey, configKey).getWrapper());
+        SysConfig retConfig =
+                baseMapper.selectOne(this.lambdaQuery().eq(SysConfig::getConfigKey, configKey).getWrapper());
         if (retConfig != null) {
             redisHelper.valueSet(this.getCacheKey(configKey), retConfig.getConfigValue());
             return retConfig.getConfigValue();

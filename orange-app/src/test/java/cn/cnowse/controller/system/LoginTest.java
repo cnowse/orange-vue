@@ -1,5 +1,8 @@
 package cn.cnowse.controller.system;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,8 +12,6 @@ import cn.cnowse.exception.ServiceException;
 import cn.cnowse.server.pojo.common.CaptchaVO;
 import cn.cnowse.server.pojo.system.dto.LoginBodyDTO;
 import cn.cnowse.util.redis.RedisHelper;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 @SpringBootTest
 class LoginTest {
@@ -22,6 +23,11 @@ class LoginTest {
     @Autowired
     private RedisHelper redis;
 
+    /**
+     * 登录成功测试
+     *
+     * @author Jeong Geol
+     */
     @Test
     void loginSuccessTest() {
         CaptchaVO code = captchaController.getCode();
@@ -32,7 +38,7 @@ class LoginTest {
         dto.setPassword("admin");
         dto.setCode(captcha);
         dto.setUuid(code.getUuid());
-        loginController.login(dto);
+        Assertions.assertDoesNotThrow(() -> loginController.login(dto));
     }
 
     @Test

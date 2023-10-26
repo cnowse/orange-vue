@@ -12,7 +12,6 @@ import cn.cnowse.server.service.system.SysLoginService;
 import cn.cnowse.server.service.system.SysUserService;
 import cn.cnowse.util.ip.IpUtils;
 import cn.cnowse.util.redis.RedisHelper;
-import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +31,7 @@ public class SysLoginServiceImpl implements SysLoginService {
     private final RedisHelper redisHelper;
 
     @Override
-    public String login(LoginBodyDTO dto) {
+    public void login(LoginBodyDTO dto) {
         // 验证码校验
         this.validateCaptcha(dto.getCode(), dto.getUuid());
         // IP黑名单校验
@@ -52,8 +51,6 @@ public class SysLoginServiceImpl implements SysLoginService {
             throw new ServiceException("登录用户已被停用");
         }
         StpUtil.login(user.getUserId());
-        SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
-        return tokenInfo.getTokenValue();
     }
 
     /**

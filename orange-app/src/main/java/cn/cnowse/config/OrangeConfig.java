@@ -1,4 +1,4 @@
-package cn.cnowse.config.properties;
+package cn.cnowse.config;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -8,8 +8,7 @@ public interface SysLoginService {
      * 登录方法
      *
      * @param dto 登录信息
-     * @return token
      */
-    String login(LoginBodyDTO dto);
+    void login(LoginBodyDTO dto);
 
 }
