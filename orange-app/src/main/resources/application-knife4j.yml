@@ -1,10 +1,10 @@
 knife4j:
   enable: true
   openapi:
-    title: "orange-vue"
-    description: "基于SpringBoot+Vue前后端分离的Java快速开发框架(Rouyi-Vue改)"
+    title: 'orange-vue'
+    description: '基于SpringBoot+Vue前后端分离的Java快速开发框架(Rouyi-Vue改)'
     email: cnowse@gmail.com
-    concat: "Jeong Geol"
+    concat: 'Jeong Geol'
     url: https://www.cnowse.com
     version: v0.0.1
     license: Apache 2.0

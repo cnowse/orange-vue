@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import cn.cnowse.annotation.Excel;
@@ -42,7 +43,6 @@ public class SysPost extends BaseEntity {
 
     /** 岗位排序 */
     @Excel(name = "岗位排序")
-
     @NotNull(message = "显示顺序不能为空")
     private Integer postSort;
 
@@ -51,6 +51,7 @@ public class SysPost extends BaseEntity {
     private String status;
 
     /** 用户是否存在此岗位标识 默认不存在 */
+    @TableField(exist = false)
     private boolean flag = false;
 
     @Override

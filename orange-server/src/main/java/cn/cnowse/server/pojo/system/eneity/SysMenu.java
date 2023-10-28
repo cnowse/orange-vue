@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import cn.cnowse.base.BaseEntity;
@@ -35,6 +36,7 @@ public class SysMenu extends BaseEntity {
     private String menuName;
 
     /** 父菜单名称 */
+    @TableField(exist = false)
     private String parentName;
 
     /** 父菜单ID */
@@ -79,6 +81,7 @@ public class SysMenu extends BaseEntity {
     private String icon;
 
     /** 子菜单 */
+    @TableField(exist = false)
     private List<SysMenu> children = new ArrayList<>();
 
     @Override

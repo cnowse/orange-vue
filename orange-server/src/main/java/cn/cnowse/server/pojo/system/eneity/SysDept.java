@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import cn.cnowse.base.BaseEntity;
@@ -64,9 +65,11 @@ public class SysDept extends BaseEntity {
     private String delFlag;
 
     /** 父部门名称 */
+    @TableField(exist = false)
     private String parentName;
 
     /** 子部门 */
+    @TableField(exist = false)
     private List<SysDept> children = new ArrayList<>();
 
     @Override

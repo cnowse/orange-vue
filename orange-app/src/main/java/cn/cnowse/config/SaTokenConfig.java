@@ -20,7 +20,7 @@ public class SaTokenConfig implements WebMvcConfigurer {
 
     /** 排除路径，不被 SaToken 拦截 */
     private final List<String> excludePath =
-            Arrays.asList("/login", "/doc.html", "/*/api-docs", "/*/api-docs/**", "/error");
+            Arrays.asList("/captchaImage", "/login", "/doc.html", "/*/api-docs", "/*/api-docs/**", "/error");
 
     /**
      * 注册 Sa-Token 拦截器，打开注解式鉴权功能
