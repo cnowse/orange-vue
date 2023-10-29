@@ -35,7 +35,7 @@ public class SysLoginServiceImpl implements SysLoginService {
         // 验证码校验
         this.validateCaptcha(dto.getCode(), dto.getUuid());
         // IP黑名单校验
-        String blackStr = configService.getConfigByKey("sys.login.blackIPList");
+        String blackStr = configService.getConfigValueByKey("sys.login.blackIPList");
         if (IpUtils.isMatchedIp(blackStr, IpUtils.getIpAddr())) {
             throw new ServiceException("IP处于黑名单中");
         }

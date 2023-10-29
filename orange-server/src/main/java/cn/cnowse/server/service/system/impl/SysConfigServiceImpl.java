@@ -20,13 +20,12 @@ public class SysConfigServiceImpl extends ServiceImpl<SysConfigMapper, SysConfig
     private final RedisHelper redisHelper;
 
     @Override
-    public String getConfigByKey(String configKey) {
+    public String getConfigValueByKey(String configKey) {
         String configValue = redisHelper.valueGet(this.getCacheKey(configKey), String.class);
         if (StringUtils.isNotEmpty(configValue)) {
             return configValue;
         }
-        SysConfig retConfig =
-                baseMapper.selectOne(this.lambdaQuery().eq(SysConfig::getConfigKey, configKey).getWrapper());
+        SysConfig retConfig = this.getByConfigKey(configKey);
         if (retConfig != null) {
             redisHelper.valueSet(this.getCacheKey(configKey), retConfig.getConfigValue());
             return retConfig.getConfigValue();
@@ -36,11 +35,16 @@ public class SysConfigServiceImpl extends ServiceImpl<SysConfigMapper, SysConfig
 
     @Override
     public boolean getCaptchaEnabled() {
-        String captchaEnabled = this.getConfigByKey("sys.account.captchaEnabled");
+        String captchaEnabled = this.getConfigValueByKey("sys.account.captchaEnabled");
         if (StringUtils.isEmpty(captchaEnabled)) {
             return true;
         }
         return "true".equals(captchaEnabled);
+    }
+
+    @Override
+    public SysConfig getByConfigKey(String configKey) {
+        return this.lambdaQuery().eq(SysConfig::getConfigKey, configKey).one();
     }
 
     /**

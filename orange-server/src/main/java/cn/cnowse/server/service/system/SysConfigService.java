@@ -12,7 +12,7 @@ public interface SysConfigService extends IService<SysConfig> {
      * @param configKey 参数key
      * @return 参数键值
      */
-    String getConfigByKey(String configKey);
+    String getConfigValueByKey(String configKey);
 
     /**
      * 获取验证码开关
@@ -20,5 +20,14 @@ public interface SysConfigService extends IService<SysConfig> {
      * @return true开启，false关闭
      */
     boolean getCaptchaEnabled();
+
+    /**
+     * 根据 configKey 获取
+     *
+     * @param configKey configKey
+     * @return cn.cnowse.server.pojo.system.entity.SysConfig
+     * @author Jeong Geol
+     */
+    SysConfig getByConfigKey(String configKey);
 
 }
