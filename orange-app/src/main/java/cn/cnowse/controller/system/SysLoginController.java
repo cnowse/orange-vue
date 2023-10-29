@@ -29,30 +29,32 @@ import lombok.RequiredArgsConstructor;
 public class SysLoginController {
 
     private final SysLoginService loginService;
-
     private final SysUserService userService;
-
     private final SysUserConvert userConvert;
-
     private final SysMenuService menuService;
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public void login(@RequestBody LoginBodyDTO dto) {
         loginService.login(dto);
     }
 
-    @GetMapping("getInfo")
+    @GetMapping("/getInfo")
     public UserVO getInfo() {
         long userId = StpUtil.getLoginIdAsLong();
         SysUser user = userService.getById(userId);
         return userConvert.toVO(user);
     }
 
-    @GetMapping("getRouters")
+    @GetMapping("/getRouters")
     public List<RouterVO> getRouters() {
         long userId = StpUtil.getLoginIdAsLong();
         List<SysMenu> menus = menuService.getMenuTreeByUserId(userId);
         return menuService.buildMenus(menus);
+    }
+
+    @PostMapping("/logout")
+    public void logout() {
+        StpUtil.logout();
     }
 
 }

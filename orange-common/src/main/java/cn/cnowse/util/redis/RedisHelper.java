@@ -1,7 +1,11 @@
 package cn.cnowse.util.redis;
 
+import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.data.redis.connection.RedisServerCommands;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -96,51 +100,39 @@ public class RedisHelper {
     }
 
     /**
-     * hash 数据类型存储
+     * 获取 Redis 配置信息
      *
-     * @param key key
-     * @param hashKey hashKey
-     * @param value 数据
+     * @param section 指定获取某个配置信息
+     * @return java.util.Properties
      * @author Jeong Geol
      */
-    public void hashPut(String key, String hashKey, Object value) {
-        try {
-            redis.opsForHash().put(key, hashKey, om.writeValueAsString(value));
-        } catch (JsonProcessingException e) {
-            log.info("opsForHash Put Json Exception. msg={}", e.getMessage());
+    public Properties getRedisInfo(String section) {
+        if (StringUtils.hasText(section)) {
+            return (Properties)redis.execute((RedisCallback<Object>)connection -> connection.info(section));
+        } else {
+            return (Properties)redis.execute((RedisCallback<Object>)RedisServerCommands::info);
         }
     }
 
     /**
-     * hash 数据类型获取
+     * 获取 key 数量
      *
-     * @param key key
-     * @param hashKey hashKey
-     * @param clazz 期望获取的 Java 类型
-     * @return clazz 指定的 Java 类型
+     * @return 已使用的内存
      * @author Jeong Geol
      */
-    public <T> T hashGet(String key, String hashKey, Class<T> clazz) {
-        String value = (String)redis.opsForHash().get(key, hashKey);
-        if (value != null) {
-            try {
-                return om.readValue(value, clazz);
-            } catch (JsonProcessingException e) {
-                log.info("opsForHash Get Json Exception. msg={}", e.getMessage());
-            }
-        }
-        return null;
+    public Object getRedisDbSize() {
+        return redis.execute((RedisCallback<Object>)RedisServerCommands::dbSize);
     }
 
     /**
-     * hash 数据类型删除指定若干个 hashKey 数据
+     * 获取指定前缀下的所有 key
      *
-     * @param key key
-     * @param hashKeys hashKey...
+     * @param key 例如：sys_config:*
+     * @return 指定前缀下的所有 key
      * @author Jeong Geol
      */
-    public void hashDelete(String key, Object... hashKeys) {
-        redis.opsForHash().delete(key, hashKeys);
+    public Set<String> keys(String key) {
+        return redis.keys(key);
     }
 
 }
