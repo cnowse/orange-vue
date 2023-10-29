@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.monitor;
+package cn.cnowse.server.pojo.monitor.vo;
 
 import java.util.List;
 import java.util.Map;

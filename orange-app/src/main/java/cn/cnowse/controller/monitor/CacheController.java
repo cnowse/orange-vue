@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.cnowse.constant.CacheConstants;
-import cn.cnowse.server.pojo.monitor.RedisInfoVO;
+import cn.cnowse.server.pojo.monitor.vo.RedisInfoVO;
 import cn.cnowse.server.pojo.system.entity.SysCache;
 import cn.cnowse.util.redis.RedisHelper;
 import lombok.RequiredArgsConstructor;
