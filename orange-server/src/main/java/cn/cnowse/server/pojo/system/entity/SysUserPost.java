@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.system.eneity;
+package cn.cnowse.server.pojo.system.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -6,23 +6,23 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import lombok.Data;
 
 /**
- * 角色和部门关联 sys_role_dept
+ * 用户和岗位关联 sys_user_post
  * 
  * @author Jeong Geol
  */
 @Data
-public class SysRoleDept {
+public class SysUserPost {
 
-    /** 角色ID */
-    private Long roleId;
+    /** 用户ID */
+    private Long userId;
 
-    /** 部门ID */
-    private Long deptId;
+    /** 岗位ID */
+    private Long postId;
 
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("roleId", getRoleId()).append("deptId", getDeptId()).toString();
+                .append("userId", getUserId()).append("postId", getPostId()).toString();
     }
 
 }

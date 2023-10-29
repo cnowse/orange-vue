@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.system.eneity;
+package cn.cnowse.server.pojo.system.entity;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;

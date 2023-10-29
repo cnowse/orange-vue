@@ -2,7 +2,7 @@ package cn.cnowse.server.service.system;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import cn.cnowse.server.pojo.system.eneity.SysUser;
+import cn.cnowse.server.pojo.system.entity.SysUser;
 
 public interface SysUserService extends IService<SysUser> {
 

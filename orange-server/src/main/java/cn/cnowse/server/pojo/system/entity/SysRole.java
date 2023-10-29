@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.system.eneity;
+package cn.cnowse.server.pojo.system.entity;
 
 import java.util.Set;
 
@@ -80,20 +80,6 @@ public class SysRole extends BaseEntity {
     /** 角色菜单权限 */
     @TableField(exist = false)
     private Set<String> permissions;
-
-    public SysRole() {}
-
-    public SysRole(Long roleId) {
-        this.roleId = roleId;
-    }
-
-    public static boolean isAdmin(Long roleId) {
-        return roleId != null && 1L == roleId;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin(this.roleId);
-    }
 
     @Override
     public String toString() {

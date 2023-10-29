@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import cn.cnowse.server.mapper.system.SysUserMapper;
-import cn.cnowse.server.pojo.system.eneity.SysUser;
+import cn.cnowse.server.pojo.system.entity.SysUser;
 import cn.cnowse.server.service.system.SysUserService;
 
 @Service

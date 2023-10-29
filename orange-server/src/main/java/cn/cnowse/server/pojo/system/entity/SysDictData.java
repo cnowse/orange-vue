@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.system.eneity;
+package cn.cnowse.server.pojo.system.entity;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -8,7 +8,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import cn.cnowse.annotation.Excel;
 import cn.cnowse.base.BaseEntity;
-import cn.cnowse.constant.UserConstants;
 import lombok.Data;
 
 /**
@@ -61,10 +60,6 @@ public class SysDictData extends BaseEntity {
     /** 状态（0正常 1停用） */
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
-
-    public boolean getDefault() {
-        return UserConstants.YES.equals(this.isDefault);
-    }
 
     @Override
     public String toString() {

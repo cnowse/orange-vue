@@ -1,4 +1,4 @@
-package cn.cnowse.server.pojo.system.eneity;
+package cn.cnowse.server.pojo.system.entity;
 
 import java.util.Date;
 import java.util.List;
@@ -17,6 +17,7 @@ import cn.cnowse.annotation.Excel;
 import cn.cnowse.annotation.Excels;
 import cn.cnowse.base.BaseEntity;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户对象 sys_user
@@ -24,6 +25,7 @@ import lombok.Data;
  * @author Jeong Geol
  */
 @Data
+@NoArgsConstructor
 public class SysUser extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
@@ -108,22 +110,6 @@ public class SysUser extends BaseEntity {
     @TableField(exist = false)
     private Long roleId;
 
-    public SysUser() {
-
-    }
-
-    public SysUser(Long userId) {
-        this.userId = userId;
-    }
-
-    public static boolean isAdmin(Long userId) {
-        return userId != null && 1L == userId;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin(this.userId);
-    }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
@@ -132,7 +118,7 @@ public class SysUser extends BaseEntity {
                 .append("userName", getUserName())
                 .append("nickName", getNickName())
                 .append("email", getEmail())
-                .append("phonenumber", getPhoneNumber())
+                .append("phoneNumber", getPhoneNumber())
                 .append("sex", getSex())
                 .append("avatar", getAvatar())
                 .append("password", getPassword())

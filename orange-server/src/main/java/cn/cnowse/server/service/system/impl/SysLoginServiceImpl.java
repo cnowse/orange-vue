@@ -6,7 +6,7 @@ import cn.cnowse.constant.CacheConstants;
 import cn.cnowse.enums.UserStatus;
 import cn.cnowse.exception.ServiceException;
 import cn.cnowse.server.pojo.system.dto.LoginBodyDTO;
-import cn.cnowse.server.pojo.system.eneity.SysUser;
+import cn.cnowse.server.pojo.system.entity.SysUser;
 import cn.cnowse.server.service.system.SysConfigService;
 import cn.cnowse.server.service.system.SysLoginService;
 import cn.cnowse.server.service.system.SysUserService;

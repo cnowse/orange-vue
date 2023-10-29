@@ -18,7 +18,7 @@ import cn.cnowse.base.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestControllerAdvice(basePackages = "cn.cnowse.web")
+@RestControllerAdvice(basePackages = "cn.cnowse.controller")
 public class WebApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
