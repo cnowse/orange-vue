@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.cnowse.base.PageResult;
@@ -28,7 +27,7 @@ public class SysUserController {
      * 获取用户列表
      */
     @GetMapping("/list")
-    public PageResult<SysUser> list(@RequestParam Integer pageNum, @RequestParam Integer pageSize, UserSpec spec) {
+    public PageResult<SysUser> list(Integer pageNum, Integer pageSize, UserSpec spec) {
         return userService.listBySpec(pageNum, pageSize, spec);
     }
 
