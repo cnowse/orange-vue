@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -82,6 +83,26 @@ public class RedisHelper {
         if (StringUtils.hasText(valueJson)) {
             try {
                 return om.readValue(valueJson, clazz);
+            } catch (JsonProcessingException e) {
+                log.info("opsForValue Get Json Exception. msg={}", e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    /**
+     * String 数据类型获取
+     *
+     * @param key key
+     * @param valueTypeRef 期望获取的 Java 类型
+     * @return clazz 指定的 Java 类型
+     * @author Jeong Geol
+     */
+    public <M> M valueGet(String key, TypeReference<M> valueTypeRef) {
+        String valueJson = redis.opsForValue().get(key);
+        if (StringUtils.hasText(valueJson)) {
+            try {
+                return om.readValue(valueJson, valueTypeRef);
             } catch (JsonProcessingException e) {
                 log.info("opsForValue Get Json Exception. msg={}", e.getMessage());
             }

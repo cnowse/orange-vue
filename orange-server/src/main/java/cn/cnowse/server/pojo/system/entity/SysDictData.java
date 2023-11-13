@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import cn.cnowse.annotation.Excel;
 import cn.cnowse.base.BaseEntity;
 import lombok.Data;
@@ -21,6 +23,7 @@ public class SysDictData extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /** 字典编码 */
+    @TableId
     @Excel(name = "字典编码", cellType = Excel.ColumnType.NUMERIC)
     private Long dictCode;
 

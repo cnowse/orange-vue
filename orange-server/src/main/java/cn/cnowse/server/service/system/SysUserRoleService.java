@@ -2,8 +2,9 @@ package cn.cnowse.server.service.system;
 
 import java.util.List;
 
-import cn.cnowse.server.pojo.system.entity.SysUserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import cn.cnowse.server.pojo.system.entity.SysUserRole;
 
 public interface SysUserRoleService extends IService<SysUserRole> {
 
